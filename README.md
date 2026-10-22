@@ -1,3 +1,13 @@
+---
+title: Background Studio
+emoji: 🖼️
+colorFrom: green
+colorTo: yellow
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Background Studio
 
 Laravel 13 + Blade + Tailwind 4 + Alpine. AI removal runs in a local Python service (rembg / U²-Net) behind a provider adapter; a remove.bg adapter is included.
