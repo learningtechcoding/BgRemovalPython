@@ -31,3 +31,5 @@ __pycache__/
 *.pyc
 /database/*.sqlite*
 /.claude
+
+.env.deploy

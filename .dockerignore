@@ -13,3 +13,4 @@ storage/framework/sessions/*
 storage/framework/views/*
 storage/app/private/*
 .claude
+.env.deploy

@@ -1,0 +1,31 @@
+# Run on any Linux server with Docker:
+#   cp .env.deploy.example .env.deploy   # then edit it
+#   docker compose --env-file .env.deploy up -d --build
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env.deploy
+    environment:
+      APP_URL: https://${DOMAIN}
+    expose:
+      - "7860"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
